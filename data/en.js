@@ -1,0 +1,382 @@
+/* LanguageBase – Kursinhalt Englisch
+   Aufbau siehe README.md („Inhalte erweitern“). **Text** wird in der App hervorgehoben. */
+window.LB = window.LB || { courses: {} };
+LB.courses.en = {
+  id: "en",
+  name: "Englisch",
+  native: "English",
+  tts: "en-GB",
+  chars: [],
+  articles: [],
+  welcome: "Englisch sitzt oft noch erstaunlich gut. Was nach Jahren wackelt, sind die Zeiten (Present Perfect!) und typisch deutsche Satzbau-Muster.",
+
+  grammar: [
+    {
+      id: "pres-perfect",
+      title: "Present Perfect oder Simple Past",
+      sub: "„I have seen“ oder „I saw“ – und warum „since“ alles ändert",
+      lvl: "B1",
+      intro: "Der Klassiker für Deutsche. Im Deutschen erzählen wir mündlich fast alles im Perfekt. Das Englische entscheidet dagegen streng danach, ob etwas abgeschlossen ist oder bis jetzt reicht.",
+      rules: [
+        { h: "Simple Past: vorbei und abgeschlossen",
+          p: "Ein konkreter Zeitpunkt oder Zeitraum in der Vergangenheit ist genannt oder klar. Signalwörter: yesterday, last week, in 2015, two years ago, when …",
+          ex: [["I **saw** him yesterday.", "Ich habe ihn gestern gesehen."], ["We **moved** here in 2018.", "Wir sind 2018 hierher gezogen."]] },
+        { h: "Present Perfect: Brücke zur Gegenwart",
+          p: "Das Ergebnis zählt jetzt, es geht um Lebenserfahrung (ever, never) oder um einen Zeitraum, der noch läuft (today, this week, so far, yet, already).",
+          ex: [["I**'ve lost** my keys.", "Ich habe meine Schlüssel verloren. (Sie fehlen jetzt.)"], ["**Have** you **ever been** to Ireland?", "Warst du schon mal in Irland?"]] },
+        { h: "Dauer bis jetzt: since und for",
+          p: "Was in der Vergangenheit begann und noch andauert, steht im Present Perfect. since + Zeitpunkt (since 2018, since Monday), for + Zeitraum (for ten years).",
+          ex: [["We **have lived** here **since** 2018.", "Wir wohnen seit 2018 hier."], ["I**'ve known** her **for** ages.", "Ich kenne sie schon ewig."]] }
+      ],
+      why: "Englisch hat zwei Blickwinkel auf Vergangenes: Das Simple Past schaut auf einen abgeschlossenen Moment „dort hinten“. Das Present Perfect steht in der Gegenwart und schaut zurück. Deshalb verträgt es keine Zeitangabe, die klar in der Vergangenheit liegt: „yesterday“ zieht den Blick nach hinten, und dann passt nur das Simple Past.",
+      de: "„Ich wohne seit 2010 hier“ steht im Deutschen im Präsens. Wörtlich übersetzt („I live here since 2010“) ist das einer der häufigsten deutschen Fehler. Und umgekehrt: Unser mündliches Perfekt („Ich habe ihn gestern gesehen“) wird im Englischen zum Simple Past.",
+      tip: "Steht eine abgeschlossene Zeitangabe dabei (yesterday, ago, last …), dann Simple Past. Reicht es bis jetzt, dann Present Perfect.",
+      ex: [
+        { t: "mc", q: "I ___ him yesterday.", o: ["saw", "have seen", "had seen"], a: 0,
+          w: "„yesterday“ ist ein abgeschlossener Zeitpunkt. Damit ist der Blick in der Vergangenheit, also Simple Past. „I have seen him yesterday“ ist im Englischen falsch, auch wenn es sich deutsch richtig anfühlt." },
+        { t: "gap", q: "We ___ in Rosenheim since 2018. (live)", a: ["have lived", "'ve lived", "have been living", "'ve been living"],
+          w: "„since 2018“ beschreibt eine Dauer, die bis heute reicht. Das verlangt Present Perfect (oder Present Perfect Continuous für die Tätigkeit). Das deutsche Präsens „wir wohnen seit“ darf man nicht übertragen." },
+        { t: "mc", q: "___ you ever ___ to Scotland?", o: ["Have / been", "Did / go", "Were / been"], a: 0,
+          w: "„ever“ fragt nach Lebenserfahrung bis jetzt, ohne Zeitpunkt. Das ist Present-Perfect-Gebiet. Und „been to“ heißt „dort gewesen und zurück“." },
+        { t: "fix", q: "I live here for ten years.", a: ["I have lived here for ten years.", "I've lived here for ten years.", "I have been living here for ten years.", "I've been living here for ten years."],
+          w: "Dauer bis jetzt mit „for“ braucht Present Perfect. „I live here for ten years“ klingt für Muttersprachler, als würdest du ankündigen, die nächsten zehn Jahre hier zu wohnen." },
+        { t: "mc", q: "She ___ her keys, so she can't get in.", o: ["has lost", "lost", "was losing"], a: 0,
+          w: "Entscheidend ist das Ergebnis jetzt: Sie kommt nicht rein. Kein Zeitpunkt genannt, Folge in der Gegenwart, also Present Perfect." },
+        { t: "tr", q: "Ich habe ihn vor zwei Jahren kennengelernt.", a: ["I met him two years ago.", "I got to know him two years ago."],
+          w: "„ago“ legt einen Zeitpunkt in der Vergangenheit fest, also Simple Past. „kennenlernen“ (erstes Treffen) ist meist „meet“." },
+        { t: "mc", q: "I've known her ___ 2015.", o: ["since", "for", "ago"], a: 0,
+          w: "2015 ist ein Zeitpunkt, daher „since“. „for“ bräuchte einen Zeitraum (for eleven years), „ago“ geht nur mit Simple Past." },
+        { t: "listen", s: "I haven't seen her since Christmas.", de: "Ich habe sie seit Weihnachten nicht gesehen.",
+          w: "„haven't seen … since“: Der Zeitraum ohne Treffen reicht bis heute, deshalb Present Perfect." },
+        { t: "speak", q: "Sag auf Englisch: „Ich war noch nie in Schottland.“", a: ["I have never been to Scotland.", "I've never been to Scotland."],
+          w: "„never“ + Lebenserfahrung = Present Perfect. „been to“ statt „gone to“: „She has gone to Scotland“ hieße, sie ist hingefahren und noch dort." }
+      ]
+    },
+    {
+      id: "continuous",
+      title: "Simple oder Continuous",
+      sub: "Gewohnheit oder gerade jetzt – und Verben, die nie „-ing“ wollen",
+      lvl: "B1",
+      intro: "Die Verlaufsform ist eine Ansichtssache: Englisch zeigt im Verb, ob du die Handlung als Ganzes siehst oder mitten in ihr stehst.",
+      rules: [
+        { h: "Simple: Gewohnheit, Tatsache, Wiederholung",
+          p: "Signalwörter: always, usually, often, every day, never.",
+          ex: [["She usually **cycles** to work.", "Sie fährt normalerweise mit dem Rad zur Arbeit."]] },
+        { h: "Continuous: gerade jetzt oder vorübergehend",
+          p: "Signalwörter: now, at the moment, this week, today, Look!, Listen!",
+          ex: [["Today she**'s taking** the bus.", "Heute nimmt sie den Bus."], ["I**'m working** from home this week.", "Diese Woche arbeite ich von zu Hause."]] },
+        { h: "Zustandsverben bleiben Simple",
+          p: "Verben für Wissen, Meinung, Gefühl und Besitz stehen normalerweise nicht in der -ing-Form: know, understand, believe, want, need, like, love, belong, seem, mean. Manche ändern ihre Bedeutung: think (meinen ↔ nachdenken), have (besitzen ↔ have lunch), see (sehen ↔ treffen).",
+          ex: [["I **know** what you mean.", "Ich weiß, was du meinst."], ["What **are** you **thinking** about?", "Worüber denkst du nach?"]] }
+      ],
+      why: "Die -ing-Form schneidet einen Ausschnitt aus einer laufenden Handlung heraus. Zustände wie „wissen“ oder „brauchen“ haben aber keinen Verlauf, sie sind einfach da. Deshalb wirkt „I am knowing“ falsch: Man kann nicht mitten im Wissen stecken.",
+      de: "Deutsch hat keine echte Verlaufsform (höchstens umgangssprachlich „ich bin am Kochen“). Wir zeigen das mit „gerade“. Wo du im Deutschen „gerade“ sagen könntest, ist im Englischen meist Continuous gefragt.",
+      tip: "Passt „gerade“ oder „diese Woche“? Dann -ing. Geht es um „wissen, mögen, brauchen“? Dann nie -ing.",
+      ex: [
+        { t: "mc", q: "Listen! The baby ___.", o: ["is crying", "cries", "cry"], a: 0,
+          w: "„Listen!“ zeigt: Es passiert genau jetzt. Laufende Handlung = Present Continuous." },
+        { t: "mc", q: "I ___ what you mean.", o: ["know", "am knowing", "have knowing"], a: 0,
+          w: "„know“ ist ein Zustandsverb. Wissen hat keinen Verlauf, darum keine -ing-Form." },
+        { t: "gap", q: "She usually ___ to work, but today she ___ the bus. (cycle / take)", a: ["cycles is taking", "cycles, is taking", "cycles / is taking"],
+          w: "„usually“ = Gewohnheit → Simple (cycles, mit -s für she). „today“ = vorübergehende Ausnahme → Continuous (is taking)." },
+        { t: "mc", q: "What ___ you ___ about? You look so serious.", o: ["are / thinking", "do / think", "is / think"], a: 0,
+          w: "Hier bedeutet „think“ „nachdenken“, eine laufende Tätigkeit. „What do you think?“ würde dagegen nach deiner Meinung fragen." },
+        { t: "fix", q: "I am needing a new phone.", a: ["I need a new phone."],
+          w: "„need“ ist ein Zustandsverb und steht im Simple. (Die Werbung „I'm lovin' it“ bricht die Regel absichtlich, damit es auffällt.)" },
+        { t: "tr", q: "Ich arbeite diese Woche von zu Hause aus.", a: ["I'm working from home this week.", "I am working from home this week.", "This week I'm working from home.", "This week I am working from home."],
+          w: "„diese Woche“ macht es vorübergehend. Normalerweise arbeitest du woanders, deshalb Continuous." },
+        { t: "mc", q: "We ___ dinner at the moment, can I call you back?", o: ["are having", "have", "had"], a: 0,
+          w: "„have dinner“ ist eine Handlung (essen), kein Besitz. Als Handlung darf „have“ in die -ing-Form." },
+        { t: "listen", s: "He's always leaving his socks on the floor.", de: "Ständig lässt er seine Socken auf dem Boden liegen.",
+          w: "Feinheit: „always“ mit Continuous drückt Genervtheit aus. „He always leaves …“ wäre neutral, „He's always leaving …“ ist eine Beschwerde." },
+        { t: "speak", q: "Sag auf Englisch: „Ich lese gerade ein richtig gutes Buch.“", a: ["I'm reading a really good book.", "I am reading a really good book.", "I'm reading a really good book at the moment.", "I am reading a really good book at the moment."],
+          w: "„gerade“ (in dieser Phase) = Continuous, auch wenn du in diesem Moment nicht liest." }
+      ]
+    },
+    {
+      id: "future",
+      title: "Zukunft: will, going to oder -ing",
+      sub: "Englisch will wissen, wie sicher und woher dein Plan ist",
+      lvl: "B1",
+      intro: "Im Deutschen reicht meist das Präsens: „Ich fahre morgen nach Berlin.“ Englisch verlangt eine Entscheidung, welche Art von Zukunft gemeint ist.",
+      rules: [
+        { h: "going to: Plan oder sichtbares Anzeichen",
+          p: "Die Absicht stand schon vorher fest, oder man sieht schon, dass es kommt.",
+          ex: [["I**'m going to** buy a new car.", "Ich werde mir ein neues Auto kaufen. (beschlossen)"], ["Look at those clouds. It**'s going to** rain.", "Schau dir die Wolken an. Es wird regnen."]] },
+        { h: "will: spontan, Versprechen, Vermutung",
+          p: "Im Moment des Sprechens entschieden, als Angebot oder Versprechen, oder als Meinung über die Zukunft (I think …, probably).",
+          ex: [["The phone's ringing. – I**'ll** get it!", "Das Telefon klingelt. – Ich geh ran!"], ["I promise I **won't** tell anyone.", "Ich verspreche, ich sag's niemandem."]] },
+        { h: "Present Continuous: fester Termin",
+          p: "Verabredet, gebucht, im Kalender. Fahrpläne und Programme stehen im Simple Present.",
+          ex: [["I**'m seeing** the dentist at three.", "Ich hab um drei Zahnarzt."], ["The train **leaves** at 7:15.", "Der Zug fährt um 7:15 ab."]] },
+        { h: "Nach when, if, as soon as: kein will",
+          p: "In Zeit- und Bedingungssätzen steht Simple Present, auch wenn es um die Zukunft geht.",
+          ex: [["**When** I **arrive**, I'll call you.", "Wenn ich ankomme, rufe ich dich an."]] }
+      ],
+      why: "„will“ entstand aus „wollen“ und wurde zur neutralen Vorhersage. „going to“ heißt wörtlich „auf dem Weg sein zu“: Die Sache ist schon in Bewegung. Das ist der Schlüssel. Bei Plänen und Anzeichen läuft es schon, bei spontanen Entschlüssen wird es erst jetzt geboren.",
+      de: "Falscher Freund: Englisch „will“ ist nicht deutsch „wollen“. „Ich will einen Kaffee“ ist „I want a coffee“ (oder höflicher „I'd like a coffee“). „I will a coffee“ ist falsch.",
+      tip: "Schon beschlossen → going to. Jetzt gerade entschieden → will. Im Kalender → -ing.",
+      ex: [
+        { t: "mc", q: "The phone is ringing. – I ___ get it!", o: ["'ll", "'m going to", "get"], a: 0,
+          w: "Die Entscheidung fällt genau in diesem Moment, spontan. Dafür steht „will“." },
+        { t: "mc", q: "Look at those clouds. It ___ rain.", o: ["is going to", "will", "rains"], a: 0,
+          w: "Man sieht die Anzeichen schon. Wenn die Zukunft sichtbar „auf dem Weg“ ist, nimmt man going to." },
+        { t: "mc", q: "I ___ my dentist at 3 tomorrow – it's in my calendar.", o: ["'m seeing", "will see", "see"], a: 0,
+          w: "Fester, verabredeter Termin = Present Continuous. „I will see“ klänge wie eine Vermutung." },
+        { t: "fix", q: "When I will arrive, I'll call you.", a: ["When I arrive, I'll call you.", "When I arrive, I will call you.", "I'll call you when I arrive.", "I will call you when I arrive."],
+          w: "Nach „when“ (und if, as soon as, before) steht Simple Present, auch für die Zukunft. Das „will“ kommt nur in den Hauptsatz." },
+        { t: "fix", q: "I will a coffee, please.", a: ["I'd like a coffee, please.", "I would like a coffee, please.", "I want a coffee, please.", "Can I have a coffee, please?", "Could I have a coffee, please?"],
+          w: "„will“ ist Zukunft, nicht „wollen“. Für Bestellungen ist „I'd like …“ oder „Can I have …?“ am natürlichsten." },
+        { t: "tr", q: "Der Zug fährt um 7:15 ab.", a: ["The train leaves at 7:15.", "The train departs at 7:15.", "The train leaves at seven fifteen."],
+          w: "Fahrpläne sind feste, unpersönliche Abläufe. Dafür steht im Englischen das Simple Present." },
+        { t: "listen", s: "I promise I won't tell anyone.", de: "Ich verspreche, ich sage es niemandem.",
+          w: "Versprechen sind ein typischer Fall für will (won't = will not)." },
+        { t: "speak", q: "Sag auf Englisch: „Wir heiraten nächstes Jahr.“ (ist fest geplant)", a: ["We're getting married next year.", "We are getting married next year.", "We're going to get married next year.", "We are going to get married next year."],
+          w: "Fester Plan mit Termin: Present Continuous (oder going to). „We will marry“ klingt wie eine Prophezeiung." }
+      ]
+    },
+    {
+      id: "conditionals",
+      title: "If-Sätze",
+      sub: "Warum „would“ nie in den if-Teil gehört",
+      lvl: "B1–B2",
+      intro: "Bedingungssätze folgen einer Logik: Je unwahrscheinlicher, desto weiter rutscht die Zeitform in die Vergangenheit.",
+      rules: [
+        { h: "Typ 1: realistisch",
+          p: "if + Present, Hauptsatz mit will (oder Imperativ).",
+          ex: [["If it **rains** tomorrow, we**'ll** stay at home.", "Wenn es morgen regnet, bleiben wir zu Hause."]] },
+        { h: "Typ 2: unwahrscheinlich oder unwirklich jetzt",
+          p: "if + Past, Hauptsatz mit would + Grundform. „If I were“ gilt in gepflegter Sprache für alle Personen.",
+          ex: [["If I **had** more time, I **would** learn Japanese.", "Wenn ich mehr Zeit hätte, würde ich Japanisch lernen."], ["If I **were** you, I**'d** take the job.", "An deiner Stelle würde ich den Job nehmen."]] },
+        { h: "Typ 3: verpasste Vergangenheit",
+          p: "if + Past Perfect, Hauptsatz mit would have + Partizip.",
+          ex: [["If we **had left** earlier, we **wouldn't have missed** the train.", "Wären wir früher losgefahren, hätten wir den Zug nicht verpasst."]] }
+      ],
+      why: "Die Vergangenheitsform in „If I had …“ meint keine Vergangenheit, sondern Abstand zur Wirklichkeit. Englisch benutzt eine Zeitstufe zurück als Zeichen für „nicht real“. „would“ zeigt dieselbe Unwirklichkeit noch einmal im Hauptsatz an. Im if-Teil wäre es doppelt gemoppelt.",
+      de: "Im Deutschen geht „Wenn ich das wissen würde, würde ich …“ umgangssprachlich durch. Im Englischen ist „If I would know“ ein klarer Fehler. Denk lieber an „Wenn ich es wüsste“: Diese eine Form entspricht dem englischen „If I knew“.",
+      tip: "Im if-Teil nie will oder would. Das will/would gehört in den anderen Satzteil.",
+      ex: [
+        { t: "mc", q: "If it ___ tomorrow, we'll stay at home.", o: ["rains", "will rain", "would rain"], a: 0,
+          w: "Typ 1: Im if-Teil steht Simple Present, auch wenn es um morgen geht. Das „will“ steht im Hauptsatz." },
+        { t: "gap", q: "If I ___ more time, I would learn Japanese. (have)", a: ["had"],
+          w: "Typ 2: Unwirklich in der Gegenwart, also if + Past. „had“ bedeutet hier „hätte“, nicht „hatte“." },
+        { t: "mc", q: "If I ___ you, I'd take the job.", o: ["were", "am", "would be"], a: 0,
+          w: "Ich bin nicht du, das ist unwirklich, also Typ 2. Die feste Wendung lautet „If I were you“." },
+        { t: "fix", q: "If I would know the answer, I would tell you.", a: ["If I knew the answer, I would tell you.", "If I knew the answer, I'd tell you."],
+          w: "„would“ hat im if-Teil nichts verloren. Die Unwirklichkeit zeigt dort die Vergangenheitsform: knew." },
+        { t: "gap", q: "If we had left earlier, we ___ the train. (not miss)", a: ["wouldn't have missed", "would not have missed"],
+          w: "Typ 3: Es geht um eine verpasste Chance in der Vergangenheit. Hauptsatz: would have + Partizip." },
+        { t: "tr", q: "Wenn du Hilfe brauchst, ruf mich an.", a: ["If you need help, call me.", "If you need help, give me a call.", "Call me if you need help.", "If you need any help, call me."],
+          w: "Realistische Bedingung mit Aufforderung: if + Present, dann Imperativ." },
+        { t: "listen", s: "If I'd known you were coming, I'd have baked a cake.", de: "Hätte ich gewusst, dass du kommst, hätte ich einen Kuchen gebacken.",
+          w: "Hörfalle: Beide Satzteile haben „'d“. Im if-Teil steht es für „had“ (Past Perfect), im Hauptsatz für „would“." },
+        { t: "speak", q: "Sag auf Englisch: „Wenn ich reich wäre, würde ich die Welt bereisen.“", a: ["If I were rich, I would travel the world.", "If I were rich, I'd travel the world.", "If I was rich, I would travel the world.", "If I was rich, I'd travel the world.", "If I were rich, I would travel around the world."],
+          w: "Typ 2: if + Past (were), Hauptsatz would + Grundform. „If I was“ ist umgangssprachlich auch üblich." }
+      ]
+    },
+    {
+      id: "word-order",
+      title: "Satzstellung",
+      sub: "Subjekt – Verb – Objekt, egal was vorne steht",
+      lvl: "B1",
+      intro: "Deutsch schiebt das Verb an Position zwei: „Gestern ging ich …“. Englisch macht das nicht. Diese Gewohnheit ist so tief, dass sie auch nach Jahren noch durchrutscht.",
+      rules: [
+        { h: "SVO bleibt fest",
+          p: "Auch wenn eine Zeit- oder Ortsangabe vorne steht, folgt danach Subjekt und dann Verb.",
+          ex: [["Yesterday **I went** to the cinema.", "Gestern ging ich ins Kino."]] },
+        { h: "Verb und Objekt nicht trennen",
+          p: "Zwischen Verb und Objekt kommt nichts. Adverbien wie „very much“ wandern ans Ende.",
+          ex: [["I like **this song very much**.", "Ich mag dieses Lied sehr."]] },
+        { h: "Häufigkeit vor dem Vollverb, aber nach „be“",
+          p: "always, usually, often, never stehen vor dem Hauptverb, aber hinter am/is/are.",
+          ex: [["We **often go** to the lake.", "Wir gehen oft an den See."], ["She **is never** late.", "Sie ist nie zu spät."]] },
+        { h: "Am Satzende: Ort vor Zeit",
+          p: "Wie im Deutschen gesprochen, aber umgekehrt geordnet: erst wohin, dann wann.",
+          ex: [["I went **to London last year**.", "Ich war letztes Jahr in London."]] }
+      ],
+      why: "Englisch hat seine Fälle fast komplett verloren. „The dog bites the man“ und „The man bites the dog“ sehen gleich aus, nur die Position verrät, wer wen beißt. Deshalb ist die Reihenfolge fest. Im Deutschen zeigen Artikel den Fall (den Mann, der Hund), darum dürfen wir umstellen.",
+      de: "Typische Germanismen: „Yesterday went I …“, „I like very much football“, „I have seen yesterday my brother“. Alle drei kommen von der deutschen Verbzweitstellung oder vom Mittelfeld.",
+      tip: "Erst wer, dann was er tut, dann womit. Alles andere an den Rand.",
+      ex: [
+        { t: "mc", q: "Yesterday ___ to the cinema.", o: ["I went", "went I", "I have gone"], a: 0,
+          w: "Auch nach „Yesterday“ bleibt Subjekt vor Verb. Und „yesterday“ verlangt Simple Past." },
+        { t: "fix", q: "I like very much this song.", a: ["I like this song very much.", "I really like this song."],
+          w: "Verb und Objekt (like this song) bleiben zusammen. „very much“ geht ans Ende, oder du nimmst „really“ vor das Verb." },
+        { t: "mc", q: "Welcher Satz ist richtig?", o: ["She is never late.", "She never is late.", "She is late never."], a: 0,
+          w: "Häufigkeitsadverbien stehen hinter „be“, aber vor allen anderen Verben (she never comes late)." },
+        { t: "mc", q: "Welcher Satz klingt natürlich?", o: ["We often go to the lake in summer.", "We go often to the lake in summer.", "Often we go in summer to the lake."], a: 0,
+          w: "„often“ vor das Vollverb, am Ende erst Ort (to the lake), dann Zeit (in summer)." },
+        { t: "tr", q: "Morgen fahre ich nach München.", a: ["Tomorrow I'm going to Munich.", "Tomorrow I am going to Munich.", "I'm going to Munich tomorrow.", "I am going to Munich tomorrow.", "Tomorrow I'm driving to Munich.", "I'm driving to Munich tomorrow.", "Tomorrow I am driving to Munich.", "I am driving to Munich tomorrow."],
+          w: "Kein Verb an Position zwei: „Tomorrow I'm going“, nicht „Tomorrow go I“. Fester Plan, darum Continuous." },
+        { t: "fix", q: "I have seen yesterday my brother.", a: ["I saw my brother yesterday.", "Yesterday I saw my brother."],
+          w: "Zwei Fehler: „yesterday“ verlangt Simple Past, und die Zeitangabe darf nicht zwischen Verb und Objekt." },
+        { t: "listen", s: "I usually have breakfast at home before work.", de: "Normalerweise frühstücke ich vor der Arbeit zu Hause.",
+          w: "„usually“ vor dem Verb, dann Objekt, dann Ort, dann Zeit." },
+        { t: "speak", q: "Sag auf Englisch: „Ich trinke abends nie Kaffee.“", a: ["I never drink coffee in the evening.", "I never drink coffee at night.", "I never drink coffee in the evenings."],
+          w: "„never“ vor das Vollverb, die Zeitangabe ans Ende." }
+      ]
+    },
+    {
+      id: "do-support",
+      title: "Fragen und Verneinung mit „do“",
+      sub: "Warum „Where you live?“ nicht geht und „doesn't likes“ auch nicht",
+      lvl: "B1",
+      intro: "Englische Vollverben lassen sich nicht einfach umstellen oder mit „not“ verneinen. Dafür springt ein Hilfsverb ein: do.",
+      rules: [
+        { h: "Vollverb → do / does / did",
+          p: "Im Simple Present und Simple Past bilden Vollverben Fragen und Verneinung mit do. Danach steht immer die Grundform.",
+          ex: [["**Does** she **work** on Saturdays?", "Arbeitet sie samstags?"], ["He **doesn't like** coffee.", "Er mag keinen Kaffee."]] },
+        { h: "Hilfsverben brauchen kein do",
+          p: "be, can, will, must, should, have got werden direkt umgestellt oder mit not verneint.",
+          ex: [["**Can** you help me?", "Kannst du mir helfen?"], ["She **isn't** here.", "Sie ist nicht hier."]] },
+        { h: "Fragen nach dem Subjekt: ohne do",
+          p: "Wenn das Fragewort selbst das Subjekt ist (Who? What?), bleibt die normale Reihenfolge.",
+          ex: [["**Who broke** the window?", "Wer hat das Fenster kaputtgemacht?"]] }
+      ],
+      why: "Früher ging es wie im Deutschen: „Know you the way?“ (Shakespeare). Englisch hat diese Umstellung bei Vollverben aufgegeben und nutzt „do“ als Platzhalter, der die Grammatik trägt. Deshalb trägt „does/did“ auch die Endung (-s, Vergangenheit), und das Hauptverb bleibt nackt: „She doesn't like“, nicht „doesn't likes“.",
+      de: "Im Deutschen stellen wir jedes Verb einfach um („Wohnst du hier?“). Im Englischen geht das nur mit Hilfsverben. Faustregel: Gibt es kein Hilfsverb, muss do her.",
+      tip: "Die Endung (-s, -ed) trägt immer nur ein Verb: entweder das Hauptverb oder do. Nie beide.",
+      ex: [
+        { t: "mc", q: "___ she work on Saturdays?", o: ["Does", "Do", "Is"], a: 0,
+          w: "„work“ ist ein Vollverb, also brauchen wir do. Bei she/he/it heißt es does." },
+        { t: "fix", q: "He doesn't likes coffee.", a: ["He doesn't like coffee.", "He does not like coffee."],
+          w: "Die -s-Endung steckt schon in „does“. Danach kommt die nackte Grundform." },
+        { t: "fix", q: "Where you live?", a: ["Where do you live?"],
+          w: "Ohne Hilfsverb keine Frage: „do“ muss zwischen Fragewort und Subjekt." },
+        { t: "mc", q: "Who ___ the window?", o: ["broke", "did break", "did broke"], a: 0,
+          w: "„Who“ ist hier das Subjekt (wer hat es getan?). Bei Subjektfragen bleibt die Satzstellung normal, kein did." },
+        { t: "gap", q: "I ___ him at the party. (not / see)", a: ["didn't see", "did not see"],
+          w: "Vergangenheit verneint: did + not + Grundform. Die Vergangenheit steckt in „did“, darum „see“ und nicht „saw“." },
+        { t: "tr", q: "Kannst du mir helfen?", a: ["Can you help me?", "Could you help me?"],
+          w: "„can“ ist selbst ein Hilfsverb und wird direkt umgestellt. „Do you can …“ gibt es nicht." },
+        { t: "listen", s: "Why didn't you tell me earlier?", de: "Warum hast du mir das nicht früher gesagt?",
+          w: "Fragewort + didn't + Subjekt + Grundform. Gesprochen verschmilzt „didn't you“ oft zu „didn-tchu“." },
+        { t: "speak", q: "Frag auf Englisch: „Wann hast du hier angefangen zu arbeiten?“", a: ["When did you start working here?", "When did you start to work here?"],
+          w: "Fragewort + did + Subjekt + Grundform. Das deutsche Perfekt wird zur Simple-Past-Frage." }
+      ]
+    }
+  ],
+
+  vocab: [
+    {
+      id: "false-friends", title: "Falsche Freunde", sub: "Wörter, die deutsch klingen und etwas anderes meinen",
+      items: [
+        { de: "werden", t: "become", n: "„bekommen“ heißt get oder receive." },
+        { de: "Geschenk", t: "gift", n: "Das deutsche Gift ist poison." },
+        { de: "eigentlich, tatsächlich", t: "actually", a: ["in fact"], n: "„aktuell“ heißt current." },
+        { de: "schließlich, irgendwann", t: "eventually", a: ["finally"], n: "„eventuell“ heißt maybe oder possibly." },
+        { de: "vernünftig", t: "sensible", n: "„sensibel“ heißt sensitive." },
+        { de: "praktisch, nützlich", t: "handy", a: ["useful"], n: "Das Handy ist mobile (UK) oder cell phone (US)." },
+        { de: "Koch, Köchin", t: "chef", a: ["cook"], n: "Der Chef ist boss oder manager." },
+        { de: "mutig", t: "brave", n: "„brav“ heißt well-behaved oder good." },
+        { de: "Landkarte, Stadtplan", t: "map", n: "Die Mappe ist folder." },
+        { de: "Miete", t: "rent", n: "Die Rente ist pension." },
+        { de: "Geld ausgeben, Zeit verbringen", t: "spend", n: "„spenden“ heißt donate." },
+        { de: "Bestatter", t: "undertaker", a: ["funeral director"], n: "Der Unternehmer ist entrepreneur." },
+        { de: "bekommen", t: "get", a: ["receive"], n: "Klassiker: „I become a steak“ heißt „Ich werde zum Steak“." }
+      ]
+    },
+    {
+      id: "home", title: "Alltag und Zuhause", sub: "Wohnung, Haushalt, Erledigungen",
+      items: [
+        { de: "Mietvertrag", t: "tenancy agreement", a: ["lease", "rental agreement"], n: "UK: tenancy agreement, US: lease." },
+        { de: "Nebenkosten", t: "utilities", a: ["bills", "service charges"], n: "Briten sagen oft einfach „bills“." },
+        { de: "Spülmaschine", t: "dishwasher" },
+        { de: "Steckdose", t: "socket", a: ["outlet", "power socket"], n: "UK: socket, US: outlet." },
+        { de: "Dachboden", t: "loft", a: ["attic"], n: "UK eher loft, US eher attic." },
+        { de: "Termin (z. B. Arzt)", t: "appointment", n: "„date“ ist eher privat oder ein Kalenderdatum." },
+        { de: "Kassenbon, Quittung", t: "receipt", n: "Das p wird nicht gesprochen: „ri-SIET“." },
+        { de: "Wechselgeld", t: "change" },
+        { de: "Vermieter", t: "landlord", a: ["landlady"] },
+        { de: "Wäsche aufhängen", t: "hang out the washing", a: ["hang up the laundry", "hang the washing out", "hang the laundry"] },
+        { de: "Mülleimer", t: "bin", a: ["rubbish bin", "trash can", "garbage can"], n: "UK: bin, US: trash can." },
+        { de: "etwas erledigen", t: "sort out", a: ["get done", "take care of"] }
+      ]
+    },
+    {
+      id: "work", title: "Arbeit und Büro", sub: "Besprechung, Frist, Baustelle",
+      items: [
+        { de: "Besprechung", t: "meeting" },
+        { de: "Frist, Abgabetermin", t: "deadline" },
+        { de: "Rechnung (Firma)", t: "invoice", a: ["bill"], n: "Im Restaurant: the bill (UK) oder the check (US)." },
+        { de: "Kostenvoranschlag, Angebot", t: "quote", a: ["quotation", "estimate"] },
+        { de: "Baustelle", t: "construction site", a: ["building site"] },
+        { de: "Bauleiter", t: "site manager", a: ["construction manager"] },
+        { de: "Gehalt", t: "salary", a: ["pay"] },
+        { de: "verschieben", t: "postpone", a: ["put off", "push back", "reschedule"] },
+        { de: "zuständig sein für", t: "be responsible for", a: ["be in charge of"] },
+        { de: "Bewerbung", t: "application", a: ["job application"] },
+        { de: "Überstunden", t: "overtime" },
+        { de: "kündigen (selbst)", t: "hand in one's notice", a: ["resign", "quit"], n: "„give notice“ geht in beide Richtungen." }
+      ]
+    },
+    {
+      id: "feelings", title: "Gefühle und Meinung", sub: "Wie es dir geht und was du denkst",
+      items: [
+        { de: "enttäuscht", t: "disappointed" },
+        { de: "erleichtert", t: "relieved" },
+        { de: "neidisch", t: "envious", a: ["jealous"], n: "„jealous“ deckt im Alltag beides ab: neidisch und eifersüchtig." },
+        { de: "peinlich (eine Sache)", t: "embarrassing", n: "Die Person ist embarrassed. Nicht „embarrassed“ mit „pregnant“ verwechseln wie im Spanischen!" },
+        { de: "stolz", t: "proud" },
+        { de: "genervt", t: "annoyed", a: ["irritated"] },
+        { de: "überrascht", t: "surprised" },
+        { de: "voller Vorfreude, aufgeregt", t: "excited", n: "„nervous“ ist negativ aufgeregt." },
+        { de: "zustimmen", t: "agree", n: "„I agree“, nie „I am agree“." },
+        { de: "Das ist mir egal (neutral)", t: "I don't mind", a: ["I don't mind."], n: "„I don't care“ klingt schnell desinteressiert oder unhöflich." },
+        { de: "einsam", t: "lonely", n: "„alone“ heißt nur allein, ohne Gefühl." },
+        { de: "meiner Meinung nach", t: "in my opinion", a: ["in my view"] }
+      ]
+    },
+    {
+      id: "idioms", title: "Redewendungen", sub: "Was Muttersprachler wirklich sagen", mcOnly: true,
+      items: [
+        { de: "Daumen drücken", t: "keep one's fingers crossed", a: ["fingers crossed"] },
+        { de: "ins Fettnäpfchen treten", t: "put one's foot in it" },
+        { de: "es regnet in Strömen", t: "it's raining cats and dogs", a: ["it's pouring"], n: "Im Alltag häufiger: „It's pouring.“" },
+        { de: "Hals- und Beinbruch", t: "break a leg" },
+        { de: "um den heißen Brei herumreden", t: "beat around the bush" },
+        { de: "Das ist ein Kinderspiel.", t: "It's a piece of cake." },
+        { de: "Ich verstehe nur Bahnhof.", t: "It's all Greek to me." },
+        { de: "jemanden auf den Arm nehmen", t: "pull someone's leg" },
+        { de: "zwei Fliegen mit einer Klappe schlagen", t: "kill two birds with one stone" },
+        { de: "die Nase voll haben", t: "be fed up" },
+        { de: "Das ist nicht mein Ding.", t: "It's not my cup of tea." },
+        { de: "auf der Kippe stehen", t: "hang in the balance" }
+      ]
+    }
+  ],
+
+  slang: {
+    intro: "Fluchen gehört zur echten Sprache. Wichtig ist, wie stark ein Ausdruck ist und wo er passt. Britisches und amerikanisches Englisch unterscheiden sich hier stark.",
+    items: [
+      { t: "mate", de: "Kumpel", lvl: 1, n: "UK und Australien, auch zu Fremden freundlich." },
+      { t: "cheers", de: "danke / prost / tschüss", lvl: 1, n: "UK: im Alltag eher „danke“ als „prost“." },
+      { t: "knackered", de: "fix und fertig, total müde", lvl: 1, n: "UK. Harmlos." },
+      { t: "dodgy", de: "zwielichtig, unseriös", lvl: 1, n: "UK: a dodgy kebab, a dodgy guy." },
+      { t: "gutted", de: "am Boden zerstört, total enttäuscht", lvl: 1, n: "UK, typisch beim Fußball." },
+      { t: "What the hell?", de: "Was zum Teufel?", lvl: 1, n: "Mild, fast überall okay." },
+      { t: "damn", de: "verdammt", lvl: 1, n: "Mild, im Büro meist noch okay." },
+      { t: "bloody", de: "verdammt (verstärkend)", lvl: 1, n: "UK: „bloody hell“. In den USA klingt es britisch-komisch." },
+      { t: "crap", de: "Mist", lvl: 2, n: "Umgangssprachlich, nicht im Meeting." },
+      { t: "pissed", de: "UK: besoffen / US: stinksauer", lvl: 2, n: "Falle! In London heißt „I'm pissed“ betrunken, in New York wütend (pissed off)." },
+      { t: "piss off!", de: "Verpiss dich! / Hau ab!", lvl: 2, n: "UK. Unter Freunden auch als „Hör auf, echt jetzt?“." },
+      { t: "Sod it!", de: "Scheiß drauf!", lvl: 2, n: "UK, eher mild-derb." },
+      { t: "bollocks", de: "Quatsch! / Blödsinn!", lvl: 2, n: "UK. Wörtlich Hoden, aber meist „Unsinn“." },
+      { t: "shit", de: "Scheiße", lvl: 2, n: "Wie im Deutschen, aber im Englischen etwas stärker." },
+      { t: "bullshit", de: "Schwachsinn, Bullshit", lvl: 2 },
+      { t: "arsehole", de: "Arschloch", lvl: 3, n: "US-Schreibweise: asshole. Klare Beleidigung." },
+      { t: "wanker", de: "Wichser", lvl: 3, n: "UK, sehr beleidigend." },
+      { t: "fuck", de: "Scheiße! / verdammt!", lvl: 3, n: "Stärkster Alltagsfluch. „fucking“ als Verstärker ist häufig, aber nie in formellem Umfeld." }
+    ],
+    situations: [
+      { t: "mc", q: "Die Mannschaft deines Freundes verliert in der 90. Minute. Er ist …", o: ["gutted", "knackered", "dodgy"], a: 0,
+        w: "„gutted“ = am Boden zerstört vor Enttäuschung. „knackered“ wäre körperlich müde." },
+      { t: "mc", q: "Nach dem Pub sagt ein Freund in London: „I'm totally pissed.“ Er meint …", o: ["Er ist betrunken.", "Er ist wütend.", "Er ist müde."], a: 0,
+        w: "Britisch: pissed = betrunken. Amerikanisch: pissed (off) = wütend. Gleiche Wörter, ganz andere Bedeutung." },
+      { t: "mc", q: "Dir kippt im Meeting mit dem Chef Kaffee über die Unterlagen. Was passt am ehesten?", o: ["Oh, damn!", "Fuck!", "Bollocks!"], a: 0,
+        w: "„damn“ ist mild und gesellschaftsfähig. „Fuck“ wäre im Büro ein echter Ausrutscher." },
+      { t: "mc", q: "„That's bollocks!“ sagt ein Brite über eine Behauptung. Er meint:", o: ["Das ist Unsinn.", "Das ist großartig.", "Das ist gefährlich."], a: 0,
+        w: "„bollocks“ wird meist für „Blödsinn“ benutzt. Achtung: „the dog's bollocks“ heißt dagegen „das Allerbeste“." }
+    ]
+  }
+};

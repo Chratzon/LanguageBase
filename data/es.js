@@ -1,0 +1,375 @@
+/* LanguageBase – Kursinhalt Spanisch (Spanien als Standard, Hinweise zu Lateinamerika) */
+window.LB = window.LB || { courses: {} };
+LB.courses.es = {
+  id: "es",
+  name: "Spanisch",
+  native: "Español",
+  tts: "es-ES",
+  chars: ["á", "é", "í", "ó", "ú", "ñ", "ü", "¿", "¡"],
+  articles: ["el", "la", "los", "las", "un", "una"],
+  welcome: "Spanisch kommt nach einer Pause schnell zurück. Die Stolpersteine sind fast immer dieselben: ser oder estar, die beiden Vergangenheiten und der Subjuntivo.",
+
+  grammar: [
+    {
+      id: "ser-estar",
+      title: "Ser oder estar",
+      sub: "Was etwas ist – und wie oder wo es gerade ist",
+      lvl: "B1",
+      intro: "Zwei Verben für „sein“. Wer den Gedanken dahinter verstanden hat, braucht keine langen Listen mehr.",
+      rules: [
+        { h: "ser: Wesen und Einordnung",
+          p: "Identität, Herkunft, Beruf, Charakter, Material, Uhrzeit und Datum, und der Ort von Ereignissen.",
+          ex: [["Mi hermana **es** médica.", "Meine Schwester ist Ärztin."], ["La reunión **es** en la sala dos.", "Die Besprechung ist in Raum zwei."]] },
+        { h: "estar: Zustand und Ort",
+          p: "Befinden, vorübergehende Zustände, Ergebnisse, der Ort von Personen und Dingen, und estar + gerundio.",
+          ex: [["Hoy **estoy** muy cansado.", "Heute bin ich sehr müde."], ["Madrid **está** en el centro de España.", "Madrid liegt in der Mitte Spaniens."]] },
+        { h: "Bedeutungswechsel",
+          p: "ser listo (klug) – estar listo (fertig) · ser aburrido (langweilig) – estar aburrido (gelangweilt) · ser malo (schlecht) – estar malo (krank) · ser rico (reich) – estar rico (lecker).",
+          ex: [["¿**Estás** lista?", "Bist du fertig?"], ["Esta sopa **está** muy rica.", "Diese Suppe ist sehr lecker."]] }
+      ],
+      why: "ser beantwortet „Was ist es? Wie ist es grundsätzlich?“. estar beantwortet „Wie geht es ihm gerade? Wo befindet es sich?“. Darum steht der Ort mit estar, aber der Ort eines Ereignisses mit ser: Ein Ereignis „befindet“ sich nicht, es findet statt. „La fiesta es en mi casa“ ordnet das Fest ein.",
+      de: "Im Deutschen ist „sein“ ein einziges Verb, die Unterscheidung machen wir mit dem Wortschatz: „Er ist langweilig“ gegen „Er langweilt sich“. Genau diese Paare entscheidet Spanisch über ser und estar.",
+      tip: "Was oder wer? → ser. Wie geht es oder wo? → estar. Wo ein Ereignis stattfindet → ser.",
+      ex: [
+        { t: "mc", q: "Mi hermana ___ médica.", o: ["es", "está", "hay"], a: 0,
+          w: "Der Beruf ordnet die Person ein: Das ist sie. Darum ser." },
+        { t: "mc", q: "¿Dónde ___ las llaves?", o: ["están", "son", "hay"], a: 0,
+          w: "Ort von Dingen → estar. „hay“ ginge nur ohne Artikel: ¿Dónde hay llaves? (Wo gibt es Schlüssel?)." },
+        { t: "mc", q: "Esta sopa ___ muy rica.", o: ["está", "es", "hay"], a: 0,
+          w: "Es geht um den Geschmack jetzt, beim Essen: estar rica = lecker. „es rica“ hieße eher „reich“ und passt nicht zu einer Suppe." },
+        { t: "mc", q: "La reunión ___ en la sala dos.", o: ["es", "está", "hay"], a: 0,
+          w: "Falle! Ereignisse (Besprechung, Party, Konzert) stehen beim Ort mit ser, weil sie stattfinden und sich nicht befinden." },
+        { t: "gap", q: "Hoy ___ muy cansado. (yo)", a: ["estoy"],
+          w: "Müdigkeit ist ein vorübergehender Zustand, und „hoy“ unterstreicht das: estar." },
+        { t: "fix", q: "Soy aburrido en esta clase. (gemeint: Ich langweile mich.)", a: ["Estoy aburrido en esta clase.", "Estoy aburrida en esta clase."],
+          w: "„Soy aburrido“ heißt „Ich bin ein langweiliger Mensch“. Gemeint ist der Zustand: estoy aburrido." },
+        { t: "tr", q: "Er ist Deutscher, aber er ist gerade in Madrid.", a: ["Es alemán, pero está en Madrid.", "Él es alemán, pero está en Madrid.", "Es alemán, pero ahora está en Madrid.", "Es alemán, pero ahora mismo está en Madrid."],
+          w: "Herkunft ordnet ein → ser. Aufenthaltsort einer Person → estar." },
+        { t: "listen", s: "¿Estás lista? Ya son las ocho.", de: "Bist du fertig? Es ist schon acht Uhr.",
+          w: "„estar lista“ = bereit (Zustand). Uhrzeit steht immer mit ser: son las ocho." },
+        { t: "speak", q: "Sag auf Spanisch: „Ich bin müde, aber glücklich.“", a: ["Estoy cansado, pero feliz.", "Estoy cansada, pero feliz.", "Estoy cansado, pero contento.", "Estoy cansada, pero contenta."],
+          w: "Beides beschreibt, wie es dir gerade geht → estar." }
+      ]
+    },
+    {
+      id: "indef-imperf",
+      title: "Indefinido oder Imperfecto",
+      sub: "Ereignis oder Hintergrund",
+      lvl: "B1",
+      intro: "Wie im Französischen: Spanisch unterscheidet in der Vergangenheit zwischen der Kulisse und dem, was passiert.",
+      rules: [
+        { h: "Imperfecto: Beschreibung und Gewohnheit",
+          p: "Wie etwas war, was regelmäßig passierte, was gerade lief. Signalwörter: antes, siempre, de niño, todos los días, mientras.",
+          ex: [["Cuando era niño, **jugaba** al fútbol todos los días.", "Als ich ein Kind war, spielte ich jeden Tag Fußball."]] },
+        { h: "Indefinido: abgeschlossenes Ereignis",
+          p: "Was zu einem bestimmten Zeitpunkt passierte, auch mit festgelegter Dauer. Signalwörter: ayer, el año pasado, de repente, en 2015, durante dos años.",
+          ex: [["Ayer **visité** a mis padres.", "Gestern habe ich meine Eltern besucht."]] },
+        { h: "Zusammen",
+          p: "Eine laufende Situation wird unterbrochen.",
+          ex: [["Mientras **cocinaba**, **sonó** el teléfono.", "Während ich kochte, klingelte das Telefon."]] }
+      ],
+      why: "Das Imperfecto zeigt eine Handlung von innen, ohne Anfang und Ende im Blick: Sie lief einfach. Das Indefinido zeigt sie von außen als abgeschlossenen Block. Deshalb steht „durante dos semanas“ im Indefinido: Auch eine lange Zeit ist ein abgeschlossener Block, wenn ihr Ende feststeht.",
+      de: "Deutsch kennt den Unterschied nicht. Ein guter Test: Kannst du im Deutschen „gerade“ oder „immer“ dazudenken? Dann Imperfecto. Kannst du „dann“ davorsetzen? Dann Indefinido.",
+      tip: "Lief gerade oder war immer so → Imperfecto. Passierte, war dann vorbei → Indefinido.",
+      ex: [
+        { t: "mc", q: "Cuando era niño, ___ al fútbol todos los días.", o: ["jugaba", "jugué", "he jugado"], a: 0,
+          w: "Gewohnheit in der Vergangenheit (todos los días, cuando era niño) → Imperfecto." },
+        { t: "mc", q: "Ayer ___ a mis padres.", o: ["visité", "visitaba", "visito"], a: 0,
+          w: "Ein abgeschlossenes Ereignis an einem bestimmten Tag → Indefinido." },
+        { t: "gap", q: "___ mucho calor cuando llegamos a Sevilla. (hacer)", a: ["Hacía"],
+          w: "Das Wetter ist die Kulisse, während das Ereignis (llegamos) passiert → Imperfecto." },
+        { t: "gap", q: "Mientras cocinaba, ___ el teléfono. (sonar)", a: ["sonó"],
+          w: "Das Kochen lief (Imperfecto), das Klingeln unterbricht als Ereignis → Indefinido." },
+        { t: "fix", q: "El año pasado viajaba a México durante dos semanas.", a: ["El año pasado viajé a México durante dos semanas.", "El año pasado viajé a México por dos semanas."],
+          w: "Eine Reise mit festgelegter Dauer im letzten Jahr ist ein abgeschlossener Block → Indefinido, trotz „zwei Wochen“." },
+        { t: "tr", q: "Früher hatte ich einen Hund.", a: ["Antes tenía un perro.", "Antes yo tenía un perro.", "Antes tenía perro."],
+          w: "„früher“ beschreibt einen Zustand über längere Zeit, ohne festes Ende → Imperfecto." },
+        { t: "listen", s: "De repente empezó a llover y no teníamos paraguas.", de: "Plötzlich fing es an zu regnen, und wir hatten keine Schirme.",
+          w: "„de repente“ + Ereignis (empezó, Indefinido). Die Lage (keine Schirme) ist Kulisse (teníamos, Imperfecto)." },
+        { t: "speak", q: "Sag auf Spanisch: „Als ich jung war, wohnte ich in Barcelona.“", a: ["Cuando era joven, vivía en Barcelona."],
+          w: "Beides beschreibt einen Zustand über längere Zeit → zweimal Imperfecto." }
+      ]
+    },
+    {
+      id: "subjuntivo",
+      title: "Subjuntivo",
+      sub: "Wünsche, Gefühle, Zweifel – und „cuando“ mit Zukunft",
+      lvl: "B1–B2",
+      intro: "Im Spanischen kommt der Subjuntivo ständig vor, auch in der Alltagssprache. Ohne ihn klingt man schnell holprig.",
+      rules: [
+        { h: "Auslöser",
+          p: "Wunsch und Aufforderung (quiero que, espero que, ojalá), Gefühl (me alegra que, me molesta que), Zweifel und verneinte Meinung (no creo que, dudo que), unpersönliche Ausdrücke (es importante que, es posible que), und para que, antes de que.",
+          ex: [["Espero que **tengas** un buen viaje.", "Ich hoffe, du hast eine gute Reise."]] },
+        { h: "cuando + Zukunft",
+          p: "Wenn „cuando“ (oder en cuanto, hasta que) sich auf die Zukunft bezieht, folgt Subjuntivo, niemals Futur.",
+          ex: [["Cuando **llegues** a casa, llámame.", "Wenn du zu Hause ankommst, ruf mich an."]] },
+        { h: "Kein Subjuntivo",
+          p: "Bejahte Meinung (creo que, pienso que), Gewissheit (es verdad que, está claro que).",
+          ex: [["Creo que **tienes** razón.", "Ich glaube, du hast recht."]] },
+        { h: "Bildung",
+          p: "yo-Form Präsens, -o weg, Gegenvokal: hablar → hable, comer → coma, vivir → viva. Unregelmäßigkeiten der yo-Form bleiben: tengo → tenga, hago → haga. Ganz unregelmäßig: ser → sea, ir → vaya, estar → esté, saber → sepa.",
+          ex: [["No creo que **sea** tan difícil.", "Ich glaube nicht, dass es so schwer ist."]] }
+      ],
+      why: "Der Indikativ behauptet: So ist es. Der Subjuntivo sagt: Das ist (noch) nicht Wirklichkeit, sondern gewünscht, befürchtet, bezweifelt oder steht noch aus. Darum auch „cuando llegues“: Du bist noch nicht angekommen. „Cuando llegas“ (Indikativ) hieße „immer wenn du ankommst“, eine Gewohnheit.",
+      de: "Im Deutschen nutzen wir dafür einfach den Indikativ („Ich hoffe, dass du kommst“). Merke dir die Gegenrichtung: Wenn du auf Deutsch „hoffen, wollen, bitten, sich freuen, dass“ sagst, kommt auf Spanisch Subjuntivo. Anders als im Französischen auch nach „esperar“!",
+      tip: "Noch nicht Wirklichkeit → Subjuntivo. Behauptung oder Gewohnheit → Indikativ.",
+      ex: [
+        { t: "mc", q: "Espero que ___ un buen viaje.", o: ["tengas", "tienes", "tendrás"], a: 0,
+          w: "Hoffnung ist ein Wunsch → Subjuntivo. Von „tengo“ kommt „tengas“." },
+        { t: "mc", q: "Creo que ___ razón.", o: ["tienes", "tengas", "tuvieras"], a: 0,
+          w: "Bejahte Meinung stellt etwas als wahr hin → Indikativ." },
+        { t: "gap", q: "Cuando ___ a casa, llámame. (llegar, tú)", a: ["llegues"],
+          w: "„cuando“ mit Zukunftsbezug → Subjuntivo. Aus llegar wird llegue (mit u, damit das g hart bleibt)." },
+        { t: "fix", q: "Cuando tendré tiempo, te visitaré.", a: ["Cuando tenga tiempo, te visitaré.", "Cuando tenga tiempo, te voy a visitar."],
+          w: "Nach „cuando“ steht nie Futur. Für die Zukunft nimmt man Subjuntivo: cuando tenga." },
+        { t: "gap", q: "No creo que ___ tan difícil. (ser)", a: ["sea"],
+          w: "Verneinte Meinung = Zweifel → Subjuntivo. ser → sea." },
+        { t: "mc", q: "Te lo explico para que lo ___.", o: ["entiendas", "entiendes", "entenderás"], a: 0,
+          w: "„para que“ (damit) zeigt ein Ziel, das noch nicht erreicht ist → immer Subjuntivo." },
+        { t: "listen", s: "Ojalá haga buen tiempo el fin de semana.", de: "Hoffentlich ist am Wochenende schönes Wetter.",
+          w: "„ojalá“ (aus dem Arabischen: so Gott will) löst immer Subjuntivo aus. hacer → haga." },
+        { t: "speak", q: "Sag auf Spanisch: „Ich will, dass du glücklich bist.“", a: ["Quiero que seas feliz.", "Quiero que estés feliz."],
+          w: "Wille in Bezug auf eine andere Person → que + Subjuntivo. Glücklich als Wesenszug: seas." }
+      ]
+    },
+    {
+      id: "por-para",
+      title: "Por oder para",
+      sub: "Zwei Wörter für unser „für“",
+      lvl: "B1",
+      intro: "Das deutsche „für“ deckt beide ab, darum fehlt uns das Gefühl. Ein Bild hilft mehr als jede Liste.",
+      rules: [
+        { h: "para: Ziel, Zweck, Empfänger",
+          p: "Wofür? Für wen? Bis wann? Wohin?",
+          ex: [["Este regalo es **para** ti.", "Dieses Geschenk ist für dich."], ["Necesito el informe **para** el viernes.", "Ich brauche den Bericht bis Freitag."]] },
+        { h: "por: Grund, Weg, Tausch",
+          p: "Warum? Wodurch? Wofür im Tausch? Wie oft? Sowie: Mittel (por teléfono), ungefähre Zeit (por la mañana), Urheber im Passiv.",
+          ex: [["Gracias **por** tu ayuda.", "Danke für deine Hilfe."], ["Lo compré **por** veinte euros.", "Ich habe es für zwanzig Euro gekauft."], ["Paseamos **por** el centro.", "Wir bummeln durch die Innenstadt."]] }
+      ],
+      why: "para zeigt nach vorne, auf ein Ziel: Empfänger, Zweck, Frist, Richtung. por zeigt auf das, was davor liegt oder dazwischen: den Grund (danke wegen deiner Hilfe), den Weg (durch den Park) oder den Gegenwert (zwanzig Euro im Tausch). Bei Unsicherheit frag: Ziel oder Ursache?",
+      de: "„für“, „durch“, „wegen“, „pro“ und „bis“ verteilen sich im Spanischen auf zwei Wörter. „wegen“, „durch“ und „pro“ sind immer por, „um zu“ ist immer para.",
+      tip: "Ziel, Zweck, Empfänger, Frist → para. Grund, Weg, Preis, pro → por.",
+      ex: [
+        { t: "mc", q: "Este regalo es ___ ti.", o: ["para", "por"], a: 0,
+          w: "Du bist der Empfänger, das Ziel des Geschenks → para." },
+        { t: "mc", q: "Gracias ___ tu ayuda.", o: ["por", "para"], a: 0,
+          w: "Die Hilfe ist der Grund für den Dank → por." },
+        { t: "mc", q: "Paseamos ___ el centro.", o: ["por", "para"], a: 0,
+          w: "Bewegung durch einen Raum hindurch → por." },
+        { t: "mc", q: "Estudio español ___ hablar con mis amigos.", o: ["para", "por"], a: 0,
+          w: "Zweck („um zu“) → para + Infinitiv." },
+        { t: "gap", q: "Te llamo ___ teléfono más tarde.", a: ["por"],
+          w: "Das Mittel, über das etwas läuft → por." },
+        { t: "fix", q: "Lo compré para veinte euros.", a: ["Lo compré por veinte euros."],
+          w: "Preis = Tausch: Ware gegen Geld → por." },
+        { t: "tr", q: "Ich brauche den Bericht bis Freitag.", a: ["Necesito el informe para el viernes."],
+          w: "Eine Frist ist ein zeitliches Ziel → para." },
+        { t: "listen", s: "Lo hice por ti, no para mí.", de: "Ich habe es deinetwegen getan, nicht für mich.",
+          w: "Feinheit: „por ti“ = deinetwegen, dir zuliebe (Grund). „para mí“ = für mich als Empfänger." },
+        { t: "speak", q: "Sag auf Spanisch: „Zweimal pro Woche gehe ich ins Fitnessstudio.“", a: ["Voy al gimnasio dos veces por semana.", "Dos veces por semana voy al gimnasio.", "Voy al gimnasio dos veces a la semana.", "Dos veces a la semana voy al gimnasio."],
+          w: "„pro“ = por (oder „a la semana“)." }
+      ]
+    },
+    {
+      id: "gustar",
+      title: "Gustar und Co.",
+      sub: "Warum „Yo gusto“ nicht „Ich mag“ heißt",
+      lvl: "B1",
+      intro: "gustar funktioniert umgekehrt: Nicht du magst etwas, sondern etwas gefällt dir.",
+      rules: [
+        { h: "Was gefällt, ist das Subjekt",
+          p: "me gusta + Singular oder Infinitiv, me gustan + Plural. Pronomen: me, te, le, nos, os, les.",
+          ex: [["Me **gusta** la playa.", "Ich mag den Strand."], ["Me **gustan** mucho los perros.", "Ich mag Hunde sehr."]] },
+        { h: "Verdopplung ist normal",
+          p: "Zur Betonung oder Klärung: a mí me gusta, a ella le gusta, a mis padres les gusta.",
+          ex: [["A mi madre **le** encanta bailar.", "Meine Mutter tanzt leidenschaftlich gern."]] },
+        { h: "Genauso gebaut",
+          p: "encantar (lieben), interesar, molestar (stören), doler (wehtun), faltar (fehlen), parecer (scheinen).",
+          ex: [["Nos **duelen** los pies.", "Uns tun die Füße weh."]] }
+      ],
+      why: "Wörtlich heißt „me gusta“ „mir gefällt“. Spanisch stellt eine Vorliebe als Wirkung auf die Person dar, nicht als ihre Handlung. Deshalb richtet sich das Verb nach der Sache, die gefällt. „Yo gusto“ hieße: Ich gefalle (jemandem).",
+      de: "Das deutsche „gefallen“ und „wehtun“ sind genauso gebaut: „Mir gefallen deine Schuhe“, „Mir tun die Füße weh“. Wer beim Sprechen an „gefallen“ statt an „mögen“ denkt, macht den Fehler nicht.",
+      tip: "Denk „gefallen“, nicht „mögen“. Das Verb richtet sich nach dem, was gefällt.",
+      ex: [
+        { t: "mc", q: "Me ___ mucho los perros.", o: ["gustan", "gusta", "gusto"], a: 0,
+          w: "Die Hunde gefallen, sie sind das Subjekt, Plural → gustan." },
+        { t: "mc", q: "A mi madre ___ encanta bailar.", o: ["le", "la", "se"], a: 0,
+          w: "Indirektes Objekt (wem gefällt es?) für ella → le. Die Verdopplung „a mi madre le“ ist normal." },
+        { t: "fix", q: "Yo gusto la playa.", a: ["Me gusta la playa.", "A mí me gusta la playa."],
+          w: "Der Strand gefällt dir: me + gusta (3. Person Singular, weil la playa Subjekt ist)." },
+        { t: "gap", q: "Nos ___ los pies después de la excursión. (doler)", a: ["duelen", "dolían", "dolieron"],
+          w: "Wie gustar: Die Füße (Plural) tun weh → duelen. o wird zu ue (doler → duele)." },
+        { t: "mc", q: "Me encanta el cine. – A mí ___.", o: ["también", "tampoco", "sí"], a: 0,
+          w: "Zustimmung zu einer bejahten Aussage: a mí también. „tampoco“ ist die Zustimmung zu einer Verneinung." },
+        { t: "tr", q: "Mir fehlt die Zeit.", a: ["Me falta tiempo.", "Me falta el tiempo."],
+          w: "„faltar“ ist gebaut wie gustar: Die Zeit fehlt mir." },
+        { t: "listen", s: "A mis hijos no les gustan nada las verduras.", de: "Meine Kinder mögen überhaupt kein Gemüse.",
+          w: "„les“ für ellos/ellas, „gustan“ weil las verduras Plural ist. „nada“ verstärkt die Verneinung." },
+        { t: "speak", q: "Sag auf Spanisch: „Mir gefallen deine Schuhe.“", a: ["Me gustan tus zapatos."],
+          w: "Die Schuhe (Plural) gefallen → gustan." }
+      ]
+    },
+    {
+      id: "perfecto",
+      title: "Pretérito perfecto oder indefinido",
+      sub: "„He comido“ oder „comí“ – in Spanien eine Frage des Zeitraums",
+      lvl: "B1",
+      intro: "In Spanien hängt die Wahl stark davon ab, ob der Zeitraum noch läuft. In Lateinamerika nimmt man meist das Indefinido.",
+      rules: [
+        { h: "Perfecto: Zeitraum läuft noch",
+          p: "hoy, esta mañana, esta semana, este año, ya, todavía no, nunca, alguna vez.",
+          ex: [["Esta mañana **he tomado** un café con Marta.", "Heute Morgen habe ich mit Marta Kaffee getrunken."]] },
+        { h: "Indefinido: Zeitraum ist vorbei",
+          p: "ayer, la semana pasada, el verano pasado, en 2019.",
+          ex: [["El verano pasado **fuimos** a Italia.", "Letzten Sommer sind wir nach Italien gefahren."]] },
+        { h: "Bildung des Perfecto",
+          p: "haber (he, has, ha, hemos, habéis, han) + Partizip. Das Partizip bleibt immer gleich. Unregelmäßig: hecho, dicho, visto, puesto, escrito, vuelto, abierto, roto, muerto.",
+          ex: [["¿Ya **has hecho** los deberes?", "Hast du die Hausaufgaben schon gemacht?"]] }
+      ],
+      why: "Die Logik gleicht dem englischen Present Perfect: Der Zeitraum, in dem es passiert ist, reicht bis zum Sprechmoment. „Esta mañana“ ist Teil von heute, darum Perfecto. „Ayer“ ist abgeschlossen, darum Indefinido. Das Partizip bleibt unverändert, weil haber hier ein reines Hilfsverb ist.",
+      de: "Unser Perfekt ist eine Erzählzeit für alles. „Ich habe Juan gestern gesehen“ wird im Spanischen zu „Vi a Juan ayer“. Und anders als im Deutschen gibt es kein „ser“ als Hilfsverb: Alles geht mit haber („he ido“, nicht „soy ido“).",
+      tip: "Heute, diese Woche, schon, noch nie → Perfecto. Gestern, letztes Jahr → Indefinido.",
+      ex: [
+        { t: "mc", q: "Esta mañana ___ un café con Marta.", o: ["he tomado", "tomé", "tomaba"], a: 0,
+          w: "„esta mañana“ gehört zum heutigen Tag, der Zeitraum läuft noch → Perfecto (Spanien)." },
+        { t: "mc", q: "El verano pasado ___ a Italia.", o: ["fuimos", "hemos ido", "íbamos"], a: 0,
+          w: "„el verano pasado“ ist abgeschlossen → Indefinido. fuimos ist die Form von ir (und ser)." },
+        { t: "gap", q: "¿Ya ___ los deberes? (hacer, tú)", a: ["has hecho"],
+          w: "„ya“ (schon) fragt bis jetzt → Perfecto. hacer hat das unregelmäßige Partizip hecho." },
+        { t: "fix", q: "He visto a Juan ayer.", a: ["Vi a Juan ayer.", "Ayer vi a Juan."],
+          w: "„ayer“ ist vorbei → Indefinido. Und das persönliche „a“ vor Juan bleibt." },
+        { t: "mc", q: "Nunca ___ paella valenciana auténtica.", o: ["he comido", "comí", "comía"], a: 0,
+          w: "„nunca“ (noch nie bis jetzt) = Lebenserfahrung → Perfecto." },
+        { t: "gap", q: "Todavía no me ___ nada. (decir, ellos)", a: ["han dicho"],
+          w: "„todavía no“ (noch nicht) reicht bis jetzt → Perfecto. decir → dicho." },
+        { t: "listen", s: "¿Alguna vez has estado en Granada?", de: "Warst du schon mal in Granada?",
+          w: "„alguna vez“ (jemals) fragt nach Erfahrung → Perfecto." },
+        { t: "speak", q: "Sag auf Spanisch: „Heute habe ich viel gearbeitet.“", a: ["Hoy he trabajado mucho."],
+          w: "„hoy“ läuft noch → Perfecto." }
+      ]
+    }
+  ],
+
+  vocab: [
+    {
+      id: "false-friends", title: "Falsche Freunde", sub: "Klingt vertraut, meint etwas anderes",
+      items: [
+        { de: "schwanger", t: "embarazada", n: "Der Klassiker! „peinlich berührt“ heißt avergonzado/a." },
+        { de: "Brief, Speisekarte", t: "la carta", n: "Eine Karte (Kredit-, Visiten-) ist la tarjeta." },
+        { de: "Erfolg", t: "el éxito", n: "Der Ausgang ist la salida." },
+        { de: "erkältet", t: "constipado", a: ["constipada", "resfriado", "resfriada"], n: "„verstopft“ heißt estreñido." },
+        { de: "lang", t: "largo", a: ["larga"], n: "„groß, weit“ heißt grande oder ancho." },
+        { de: "Trinkglas", t: "el vaso", n: "Die Vase ist el jarrón oder el florero." },
+        { de: "Unterschrift", t: "la firma", n: "Die Firma ist la empresa." },
+        { de: "Geschenk", t: "el regalo", n: "Das Regal ist la estantería." },
+        { de: "Werkstatt", t: "el taller", n: "Der Teller ist el plato." },
+        { de: "Hochzeit", t: "la boda", n: "Der Boden ist el suelo." },
+        { de: "durchführen, verwirklichen", t: "realizar", n: "„realisieren“ im Sinne von begreifen ist darse cuenta." },
+        { de: "Klischee", t: "el tópico", n: "Das Thema ist el tema." },
+        { de: "antworten", t: "contestar", a: ["responder"], n: "„anfechten“ heißt impugnar." }
+      ]
+    },
+    {
+      id: "home", title: "Alltag und Zuhause", sub: "Wohnung, Haushalt, Erledigungen",
+      items: [
+        { de: "Mietvertrag", t: "el contrato de alquiler" },
+        { de: "Nebenkosten", t: "los gastos", a: ["los gastos de comunidad"] },
+        { de: "Spülmaschine", t: "el lavavajillas", a: ["el lavaplatos"] },
+        { de: "Steckdose", t: "el enchufe", n: "„enchufe“ heißt auch Vitamin B (Beziehungen)!" },
+        { de: "Dachboden", t: "el desván", a: ["el ático"] },
+        { de: "Termin", t: "la cita" },
+        { de: "Kassenbon", t: "el tique", a: ["el ticket", "el recibo"] },
+        { de: "Vermieter", t: "el casero", a: ["la casera", "el propietario"] },
+        { de: "Wäsche aufhängen", t: "tender la ropa" },
+        { de: "Müll", t: "la basura" },
+        { de: "Nachbar", t: "el vecino", a: ["la vecina"] },
+        { de: "Wechselgeld", t: "el cambio", a: ["la vuelta"], n: "In Spanien sagt man oft „la vuelta“." }
+      ]
+    },
+    {
+      id: "work", title: "Arbeit und Büro", sub: "Besprechung, Frist, Baustelle",
+      items: [
+        { de: "Besprechung", t: "la reunión" },
+        { de: "Frist", t: "el plazo", a: ["la fecha límite"] },
+        { de: "Rechnung (Firma)", t: "la factura", n: "Im Restaurant: la cuenta." },
+        { de: "Kostenvoranschlag", t: "el presupuesto", n: "Bedeutet auch Budget." },
+        { de: "Baustelle", t: "la obra" },
+        { de: "Bauleiter", t: "el jefe de obra" },
+        { de: "Gehalt", t: "el sueldo", a: ["el salario"] },
+        { de: "verschieben", t: "aplazar", a: ["posponer"] },
+        { de: "zuständig sein für", t: "estar a cargo de", a: ["ser responsable de", "encargarse de"] },
+        { de: "Bewerbung", t: "la solicitud", a: ["la candidatura"] },
+        { de: "Überstunden", t: "las horas extra", a: ["las horas extras"] },
+        { de: "Arbeitskollege", t: "el compañero de trabajo", a: ["la compañera de trabajo", "el compañero"] }
+      ]
+    },
+    {
+      id: "feelings", title: "Gefühle und Meinung", sub: "Wie es dir geht und was du denkst",
+      items: [
+        { de: "enttäuscht", t: "decepcionado", a: ["decepcionada"] },
+        { de: "erleichtert", t: "aliviado", a: ["aliviada"] },
+        { de: "eifersüchtig", t: "celoso", a: ["celosa"], n: "Neidisch ist envidioso." },
+        { de: "Das ist mir peinlich.", t: "Me da vergüenza.", n: "Nicht „estoy embarazada“!" },
+        { de: "stolz", t: "orgulloso", a: ["orgullosa"] },
+        { de: "es satthaben", t: "estar harto", a: ["estar harta"] },
+        { de: "überrascht", t: "sorprendido", a: ["sorprendida"] },
+        { de: "meiner Meinung nach", t: "en mi opinión", a: ["para mí", "a mi parecer"] },
+        { de: "einverstanden sein", t: "estar de acuerdo" },
+        { de: "Das ist mir egal.", t: "Me da igual.", a: ["Me da lo mismo."] },
+        { de: "Lust haben auf", t: "tener ganas de" },
+        { de: "einsam, allein", t: "solo", a: ["sola"] }
+      ]
+    },
+    {
+      id: "idioms", title: "Redewendungen", sub: "Was Spanier wirklich sagen", mcOnly: true,
+      items: [
+        { de: "mit den Gedanken woanders sein", t: "estar en las nubes" },
+        { de: "jemanden auf den Arm nehmen", t: "tomar el pelo a alguien" },
+        { de: "ein Vermögen kosten", t: "costar un ojo de la cara" },
+        { de: "es regnet in Strömen", t: "llover a cántaros" },
+        { de: "ein Kinderspiel sein", t: "ser pan comido" },
+        { de: "ins Fettnäpfchen treten", t: "meter la pata" },
+        { de: "kein Blatt vor den Mund nehmen", t: "no tener pelos en la lengua" },
+        { de: "völlig verrückt sein", t: "estar como una cabra" },
+        { de: "jemandem einen Korb geben", t: "dar calabazas" },
+        { de: "das Geld mit vollen Händen ausgeben", t: "tirar la casa por la ventana" },
+        { de: "sich ranhalten, Gas geben", t: "ponerse las pilas" },
+        { de: "einen Blackout haben", t: "quedarse en blanco" }
+      ]
+    }
+  ],
+
+  slang: {
+    intro: "In Spanien wird auffallend viel und laut geflucht, oft ohne böse Absicht. In Lateinamerika sind viele Wörter anders belegt, ein harmloses Wort in Madrid kann in Mexiko vulgär sein.",
+    items: [
+      { t: "tío / tía", de: "Alter, Typ (Anrede)", lvl: 1, n: "Spanien. Wörtlich Onkel/Tante." },
+      { t: "guay", de: "cool", lvl: 1, n: "Spanien." },
+      { t: "mola", de: "das ist cool (molar)", lvl: 1, n: "Spanien: ¡Cómo mola! · „mazo“ = sehr (jugendlich)." },
+      { t: "vale", de: "okay", lvl: 1, n: "Spanien, ständig gebraucht." },
+      { t: "currar / el curro", de: "arbeiten / der Job", lvl: 1, n: "Spanien, umgangssprachlich." },
+      { t: "¡qué pasada!", de: "Wahnsinn! (positiv)", lvl: 1 },
+      { t: "estar hecho polvo", de: "fix und fertig sein", lvl: 1 },
+      { t: "¡vaya!", de: "Na so was! / Mist!", lvl: 1, n: "Harmlos, überall okay." },
+      { t: "¡joder!", de: "Verdammt! / Scheiße!", lvl: 2, n: "Spanien, extrem häufig, fast wie ein Komma. In Lateinamerika stärker." },
+      { t: "¡hostia!", de: "Verdammt! / Wahnsinn!", lvl: 2, n: "Spanien. Wörtlich „Hostie“, darum für Gläubige anstößig." },
+      { t: "¡mierda!", de: "Scheiße!", lvl: 2 },
+      { t: "¡qué putada!", de: "So eine Scheiße! / So gemein!", lvl: 2 },
+      { t: "¡no me jodas!", de: "Das gibt's doch nicht! / Verarsch mich nicht!", lvl: 2 },
+      { t: "¡coño!", de: "Verdammt!", lvl: 3, n: "Spanien als Ausruf häufig, aber vulgär (Anatomie). In Lateinamerika deutlich stärker." },
+      { t: "¡me cago en …!", de: "Ich scheiß auf …!", lvl: 3, n: "Wutfluch, oft mit „la leche“ (abgeschwächt) oder Schlimmerem." },
+      { t: "gilipollas", de: "Vollidiot, Arschloch", lvl: 3, n: "Spanien. Klare Beleidigung." },
+      { t: "cabrón", de: "Mistkerl", lvl: 3, n: "Unter engen Freunden auch kumpelhaft, sonst beleidigend." },
+      { t: "pendejo", de: "Idiot, Arschloch", lvl: 3, n: "Lateinamerika (v. a. Mexiko)." }
+    ],
+    situations: [
+      { t: "mc", q: "In Madrid sagt ein Freund: „¡Esta peli mola mazo, tío!“", o: ["Der Film ist richtig cool, Alter!", "Der Film ist mies.", "Der Film hat ihn müde gemacht."], a: 0,
+        w: "„molar“ = gefallen, cool sein. „mazo“ = sehr (Jugendsprache), „tío“ = Alter." },
+      { t: "mc", q: "In Spanien heißt „coger el autobús“ den Bus nehmen. Warum sagst du das in Mexiko oder Argentinien lieber nicht?", o: ["Dort ist „coger“ ein vulgäres Wort für Sex. Besser: „tomar el autobús“.", "Dort heißt es „den Bus stehlen“.", "Dort versteht man das Wort nicht."], a: 0,
+        w: "Eine der bekanntesten Fallen zwischen Spanien und Lateinamerika. Mit „tomar“ bist du überall sicher." },
+      { t: "mc", q: "Du kippst im Büro in Sevilla Kaffee über die Tastatur. Was ist am wenigsten daneben?", o: ["¡Vaya!", "¡Me cago en todo!", "¡Gilipollas!"], a: 0,
+        w: "„¡Vaya!“ ist harmlos. „¡Me cago en todo!“ ist ein derber Wutfluch, „gilipollas“ eine Beleidigung." },
+      { t: "mc", q: "Nach einem langen Arbeitstag: „Estoy hecho polvo.“ Das heißt:", o: ["Ich bin fix und fertig.", "Ich bin schmutzig.", "Ich bin wütend."], a: 0,
+        w: "Wörtlich „zu Staub gemacht“: völlig erschöpft." }
+    ]
+  }
+};
