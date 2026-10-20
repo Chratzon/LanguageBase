@@ -1,9 +1,9 @@
 /* LanguageBase Service Worker: App offline verfügbar machen.
    Bei Änderungen an Dateien VERSION hochzählen, damit Geräte die neue Fassung laden. */
-const VERSION = "lb-1.0.0";
+const VERSION = "lb-1.1.0";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest", "css/app.css",
-  "js/core.js", "js/app.js",
+  "js/core.js", "js/install.js", "js/app.js",
   "data/en.js", "data/fr.js", "data/es.js", "data/it.js",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"
 ];

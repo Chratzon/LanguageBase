@@ -25,10 +25,14 @@ Sprachen: Englisch, Französisch, Spanisch, Italienisch.
 
 1. Repository auf GitHub → *Settings › Pages*
 2. *Source: Deploy from a branch*, Branch `main`, Ordner `/ (root)`
-3. Nach kurzer Zeit erreichbar unter `https://chratzon.github.io/LanguageBase/`
+3. Nach kurzer Zeit erreichbar unter `https://chratzon.github.io/languagebase/` (klein geschrieben, Großschreibung wird automatisch umgeleitet)
 4. Auf dem Handy in Chrome öffnen → Menü → *App installieren*
 
 Nach Änderungen an Dateien in `sw.js` die `VERSION` hochzählen, damit installierte Apps die neue Fassung laden.
+
+### Wenn Chrome „bereits installiert“ meldet, die App aber fehlt
+
+Dann ist die Installation unter Android hängen geblieben. Die Einstellungen der App enthalten eine Anleitung dazu. Kurzfassung: `chrome://webapks` prüfen, in Chrome unter *Website-Einstellungen › chratzon.github.io* „Löschen und zurücksetzen“ (vorher Sicherung speichern), Seite neu laden und erneut installieren. Das Manifest hat eine feste `id` (`/languagebase/`), damit Chrome die App eindeutig zuordnet.
 
 ## Aufbau
 

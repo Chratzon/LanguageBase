@@ -111,11 +111,16 @@
           </button>`;
         }).join("")}
       </section>
+      <section class="review" id="homeInstall"${LB.install.canPrompt && !LB.install.standalone ? "" : " hidden"}>
+        <div class="t"><b>Als App installieren</b><span>Startet vom Startbildschirm und läuft offline.</span></div>
+        <button class="btn" data-act="install">Installieren</button>
+      </section>
       <section class="stack">
         <span class="label">In Planung</span>
         <div class="soon"><span class="chip">Polnisch</span><span class="chip">Tschechisch</span><span class="chip">Kroatisch</span><span class="chip">Ungarisch</span><span class="chip">Einsteigermodus</span></div>
       </section>`;
     main.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => go("lang", { l: b.dataset.go })));
+    wireInstall(main.querySelector("#homeInstall"));
   };
 
   VIEWS.lang = function ({ l }) {
@@ -275,11 +280,12 @@
     }).join("");
     main.innerHTML = `
       <section class="stack"><h2>Einstellungen</h2></section>
+      <section class="stack" id="installBox">${installHTML()}</section>
       <section class="stack">
         <span class="label">Darstellung und Ton</span>
         <div class="list">
           <div class="setting"><span class="t">Erscheinungsbild</span>
-            <select id="setTheme" class="btn" style="min-height:42px">
+            <select id="setTheme" class="btn" style="min-height:42px;max-width:52%;padding-inline:10px">
               <option value="system"${st.theme === "system" ? " selected" : ""}>Wie das System</option>
               <option value="light"${st.theme === "light" ? " selected" : ""}>Hell</option>
               <option value="dark"${st.theme === "dark" ? " selected" : ""}>Dunkel</option>
@@ -311,6 +317,7 @@
         <button class="btn ghost" id="reset">Fortschritt zurücksetzen</button>
       </section>
       <p class="small muted">LanguageBase · Inhalte ${ORDER.map((id) => course(id).name).join(", ")}</p>`;
+    wireInstall(main.querySelector("#installBox"));
     const save = () => { LB.store.save(); };
     main.querySelector("#setTheme").addEventListener("change", (e) => { st.theme = e.target.value; save(); applyTheme(); });
     main.querySelector("#setRate").addEventListener("input", (e) => { st.rate = parseFloat(e.target.value); main.querySelector("#rateVal").textContent = Math.round(st.rate * 100) + " %"; save(); });
@@ -337,6 +344,45 @@
       setTimeout(() => { if (rb.isConnected) { delete rb.dataset.armed; rb.textContent = "Fortschritt zurücksetzen"; rb.style.color = ""; } }, 4000);
     });
   };
+  /* ---------- Installation ---------- */
+  function installHTML() {
+    const X = LB.install;
+    let h = `<span class="label">Als App auf dem Handy</span>`;
+    if (X.standalone) return h + `<p class="status-line"><i class="dot ok"></i>Läuft als installierte App.</p>`;
+    if (X.justInstalled) h += `<p class="status-line"><i class="dot ok"></i>Installiert. Du findest LanguageBase jetzt in der App-Übersicht.</p>`;
+    if (!X.secure) h += `<p class="warn">Installieren geht nur über die https-Adresse (GitHub Pages), nicht über eine lokal geöffnete Datei.</p>`;
+    if (X.canPrompt) h += `<button class="btn primary" data-act="install">App installieren</button>`;
+    if (X.ios) {
+      h += `<p class="small">Auf dem iPhone in <b>Safari</b> öffnen, unten auf Teilen tippen und „Zum Home-Bildschirm“ wählen.</p>`;
+    } else {
+      h += `<p class="small">${X.canPrompt ? "Oder" : "So geht's"}: In Chrome oben rechts das Menü (drei Punkte) öffnen und „App installieren“ wählen.</p>
+        <details class="small">
+          <summary><b>Chrome sagt „bereits installiert“, aber die App ist nicht zu finden?</b></summary>
+          <ol style="padding-left:20px;margin:8px 0 0;display:flex;flex-direction:column;gap:6px">
+            <li>In Chrome <b>chrome://webapks</b> in die Adresszeile tippen. Steht LanguageBase dort nicht, ist die Installation hängen geblieben.</li>
+            <li>Chrome-Menü › Einstellungen › Website-Einstellungen › Alle Websites › <b>chratzon.github.io</b> › „Löschen und zurücksetzen“. Achtung: Das löscht auch den Lernfortschritt aller Apps auf dieser Adresse. Vorher unten „Sicherung speichern“ nutzen.</li>
+            <li>Diese Seite neu laden, kurz warten und erneut „App installieren“ wählen. Die Installation läuft über Google Play und kann eine halbe Minute dauern. In dieser Zeit Chrome nicht schließen.</li>
+            <li>Bei Samsung: In der App-Übersicht nach „LanguageBase“ suchen. Neue Apps landen dort nicht immer auf dem Startbildschirm.</li>
+          </ol>
+        </details>`;
+    }
+    return h;
+  }
+  function wireInstall(box) {
+    if (!box) return;
+    const btn = box.querySelector("[data-act=install]");
+    if (btn) btn.addEventListener("click", async () => {
+      const r = await LB.install.prompt();
+      if (r === "accepted") toast("Wird installiert. Das kann einen Moment dauern.");
+    });
+  }
+  LB.install.onChange(() => {
+    const box = document.getElementById("installBox");
+    if (box) { box.innerHTML = installHTML(); wireInstall(box); }
+    const hb = document.getElementById("homeInstall");
+    if (hb) hb.hidden = !LB.install.canPrompt;
+  });
+
   function sampleSentence(id) {
     return { en: "Nice to hear from you again.", fr: "Ça fait plaisir de te revoir.", es: "¡Qué alegría volver a verte!", it: "Che bello rivederti!" }[id];
   }
@@ -739,7 +785,7 @@
   history.replaceState(start, "");
   render(start);
 
-  if ("serviceWorker" in navigator && location.protocol === "https:") {
+  if ("serviceWorker" in navigator && LB.install.secure) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }
 })();
